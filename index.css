@@ -1,1 +1,454 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題研究 第Xグループ | 〇〇工業高等学校</title>
+    
+    <!-- Google Material Icons (アイコンを使用するため) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        /* ==========================================
+           1. 全体の基本設定 (Base Styles)
+        ========================================== */
+        :root {
+            --primary-color: #2563eb; /* ブルー */
+            --primary-hover: #1d4ed8;
+            --bg-dark: #0f172a; /* ダークグレー */
+            --bg-light: #f8fafc; /* ライトグレー */
+            --text-main: #334155;
+            --text-light: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth; /* スクロールを滑らかに */
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 共通のコンテナサイズ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==========================================
+           2. ヘッダー (Header)
+        ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.95); /* 少し透ける黒 */
+            backdrop-filter: blur(8px);
+            color: white;
+            z-index: 100;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .logo .material-symbols-outlined {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ==========================================
+           3. ヒーローセクション (トップ画面)
+        ========================================== */
+        .hero {
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 工業的なドットパターンの背景 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+
+        .hero-school {
+            color: var(--primary-color);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 24px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-desc {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ==========================================
+           4. セクション共通 (Sections)
+        ========================================== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--bg-dark);
+            margin-bottom: 48px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ==========================================
+           5. 研究概要 (About)
+        ========================================== */
+        .about-box {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================
+           6. 特徴 (Features)
+        ========================================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .feature-icon .material-symbols-outlined {
+            font-size: 28px;
+        }
+
+        /* アイコンの色分け */
+        .icon-blue { background: #dbeafe; color: #2563eb; }
+        .icon-green { background: #d1fae5; color: #059669; }
+        .icon-purple { background: #f3e8ff; color: #7c3aed; }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin: 0 0 12px;
+            color: var(--bg-dark);
+        }
+
+        .feature-card p {
+            color: #475569;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           7. ブログリンク (Blog)
+        ========================================== */
+        .blog-section {
+            text-align: center;
+            background-color: white;
+            padding: 100px 0;
+        }
+
+        .blog-icon-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-dark);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .blog-icon-wrap .material-symbols-outlined {
+            color: var(--primary-color);
+            font-size: 40px;
+        }
+
+        .blog-desc {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #475569;
+            font-size: 1.1rem;
+        }
+
+        .btn-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-dark:hover {
+            background-color: #1e293b;
+            transform: scale(1.05);
+        }
+
+        .btn-dark:active {
+            transform: scale(0.95);
+        }
+
+        /* ==========================================
+           8. フッター (Footer)
+        ========================================== */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 48px 0;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* ==========================================
+           9. スマホ対応 (Responsive)
+        ========================================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* スマホではメニューを隠す */
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* スマホでは縦1列 */
+            }
+            .about-box {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="material-symbols-outlined">settings</span>
+                課題研究 第Xグループ
+            </div>
+            <nav class="nav-links">
+                <a href="#about">研究概要</a>
+                <a href="#features">特徴</a>
+                <a href="#blog">活動記録(ブログ)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-school">〇〇工業高等学校</span>
+            <h1 class="hero-title">次世代Webアプリケーションの<br>開発と実装</h1>
+            <p class="hero-desc">私たちは、最新のWeb技術を用いて、シンプルで使いやすく、かつ実用的なアプリケーションの構築を目指して研究を行っています。</p>
+            <a href="#about" class="btn-primary">
+                研究内容を見る
+                <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 研究概要セクション -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">研究概要</h2>
+            <div class="about-box">
+                <p>本研究では、ユーザーにとって「わかりやすい」「使いやすい」を最優先としたWebデザインとシステム構築をテーマにしています。</p>
+                <p style="margin-top: 16px;">特に、複雑になりがちな情報サイトを単調でありながらも、視覚的に洗練された（かっこいい）デザインに落とし込むUI/UXの工夫について探求します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section id="features" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">特徴</h2>
+            <div class="features-grid">
+                <!-- 特徴1 -->
+                <div class="feature-card">
+                    <div class="feature-icon icon-blue">
+                        <span class="material-symbols-outlined">memory</span>
+                    </div>
+                    <h3>最新技術の活用</h3>
+                    <p>モダンな技術を使用し、効率的な開発を行います。</p>
+                </div>
+                <!-- 特徴2 -->
+                <div class="feature-card">
+                    <div class="feature-icon icon-green">
+                        <span class="material-symbols-outlined">build</span>
+                    </div>
+                    <h3>保守性の高いコード</h3>
+                    <p>誰が見ても分かりやすく、後から改修しやすいシンプルなコード設計を心掛けています。</p>
+                </div>
+                <!-- 特徴3 -->
+                <div class="feature-card">
+                    <div class="feature-icon icon-purple">
+                        <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <h3>チーム開発</h3>
+                    <p>GitHubを用いたバージョン管理やタスク分担を通じて、実践的な開発手法を学びます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ブログリンクセクション -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="blog-icon-wrap">
+                <span class="material-symbols-outlined">open_in_new</span>
+            </div>
+            <h2 style="font-size: 2rem; color: var(--bg-dark); margin: 0 0 24px;">日々の活動記録</h2>
+            <p class="blog-desc">私たちの研究の進捗や、日々の活動の様子は専用のブログにて更新しています。技術的な躓きや解決策なども共有していますので、ぜひご覧ください。</p>
+            
+            <!-- ★href="ここにブログのURLを入れる"★ -->
+            <a href="https://example.com/blog" target="_blank" rel="noopener noreferrer" class="btn-dark">
+                活動ブログを見る
+                <span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p style="margin: 0 0 8px;">〇〇工業高等学校</p>
+            <p style="margin: 0; font-size: 0.9rem;">&copy; 2024 課題研究 第Xグループ. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+```
 
