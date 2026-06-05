@@ -1,107 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
+index_html = """<!DOCTYPE html>
+<html lang='ja'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千葉県立市川工業高等学校 課題研究 E3A 3班 | </title>
-    
-    <!-- Google Material Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-    <!-- ★ここで index.css を読み込みます★ -->
-    <link rel="stylesheet" href="index.css">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='style.css'>
+    <title>マイサイト - 概要</title>
 </head>
 <body>
-
-    <!-- ヘッダー -->
+    <nav>
+        <a href='index.html'>ホーム</a> |
+        <a href='blog.html'>ブログ</a>
+    </nav>
     <header>
-        <div class="header-inner">
-            <nav class="nav-links">
-                <UI class="menu-group">
-                    <li class="menu-item"><a href="#">概要</a>><li>
-                    <li class="menu-item"><a href="#">Blog</a>><li>
-                </UI>
-            </nav>
-        </div>
+        <h1>課題研究プロジェクト</h1>
+        <p>GitHub Pagesで作る静的サイトのデモです。</p>
     </header>
-
-    <!-- ヒーローセクション -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">風力発電　探求と製作</h1>
-            <p class="hero-desc">私たちは、近年話題になっている<br>再生可能エネルギーのひとつである風力発電に焦点を置き、<br>効率的な発電や廃材などを用いたサステナブルな構築を目指します。</p>
-            <a href="#about" class="btn-primary">
-                研究内容を見る
-                <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- 研究概要セクション -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">研究概要</h2>
-            <div class="about-box">
-                <p>本研究では、</p>
-                <p style="margin-top: 16px;"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 特徴セクション -->
-    <section id="features" style="background-color: #f1f5f9;">
-        <div class="container">
-            <h2 class="section-title">特徴</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon icon-blue">
-                        <span class="material-symbols-outlined">Cycle</span>
-                    </div>
-                    <h3>廃材の活用</h3>
-                    <p>学校にあった廃材などを駆使し、環境に良い発電を目指す</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-green">
-                        <span class="material-symbols-outlined">Bolt</span>
-                    </div>
-                    <h3>効率的な発電</h3>
-                    <p></p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-purple">
-                        <span class="material-symbols-outlined"></span>
-                    </div>
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ブログリンクセクション -->
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <div class="blog-icon-wrap">
-                <span class="material-symbols-outlined">Web</span>
-            </div>
-            <h2 style="font-size: 2rem; color: var(--bg-dark); margin: 0 0 24px;">日々の活動記録</h2>
-            <p class="blog-desc">私たちの研究の進捗や、日々の活動の様子は専用のブログにて更新しています。技術的な躓きや解決策なども共有していますので、ぜひご覧ください。</p>
-            
-            <!-- ★href="ここにブログのURLを入れる"★ -->
-            <a href="https://xkot28.github.io/ichikawaTHS_Blog/" target="_blank" rel="noopener noreferrer" class="btn-dark">
-                活動ブログを見る
-                <span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- フッター -->
+    <main>
+        <section>
+            <h2>概要</h2>
+            <p>このサイトはHTMLとCSSで構成されています。</p>
+        </section>
+    </main>
     <footer>
-        <div class="container">
-            <p style="margin: 0 0 8px;">千葉県立市川工業高等学校</p>
-            <p style="margin: 0; font-size: 0.9rem;">&copy; 2026年度 E3A 3班. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2023 課題研究サイト</p>
     </footer>
-
 </body>
-</html>
+</html>"""
