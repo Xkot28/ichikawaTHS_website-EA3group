@@ -1,7 +1,0 @@
-body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 0; color: #333; background-color: #fcfcfc; }
-nav { background-color: #ffffff; border-bottom: 2px solid #0056b3; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; text-align: center; }
-nav a { color: #0056b3; text-decoration: none; margin: 0 15px; font-weight: bold; }
-header { padding: 60px 20px; text-align: center; background: linear-gradient(135deg, #0056b3, #007bff); color: white; }
-main { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-h2 { border-left: 5px solid #0056b3; padding-left: 15px; color: #0056b3; }
-footer { text-align: center; padding: 20px; color: #888; font-size: 0.8rem; }
