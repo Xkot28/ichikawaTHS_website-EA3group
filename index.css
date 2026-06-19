@@ -5,6 +5,9 @@ body {
     margin: 0;
     color: #333;
     background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Navigation Bar Styles (common for all sites) */
@@ -162,6 +165,16 @@ main#blog-list {
 
 .admin-button:hover {
     background: #2e59d9;
+}
+
+.site-footer {
+    margin-top: auto; /* 上の余白を自動計算し、フッターを一番下へ押しやる */
+    text-align: right; /* 右寄せにする */
+    padding: 20px;
+    
+    /* 背景色と文字色はお好みのものに変更してください */
+    background: #1a2a6c; 
+    color: white;
 }
 
 /* Overwrite for blog index.html from build_blog.py*/
