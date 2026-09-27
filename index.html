@@ -60,5 +60,34 @@
     <footer class="site-footer">
         <p>&copy; 2026 千葉県立市川工業高等学校 E3A 3Group</p>
     </footer>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 「fade-in」クラスを持つすべての要素を取得
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    // スクロールして画面に入ったかを監視する仕組み（Intersection Observer）
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // 要素が画面に入ったら
+            if (entry.isIntersecting) {
+                // 「is-visible」クラスを追加してアニメーションを実行
+                entry.target.classList.add('is-visible');
+                
+                // ※一度表示されたらもうアニメーションさせない（監視を終わる）場合は下の行の // を消す
+                // observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // 画面の下から100pxの位置に要素が来たら発火させる（お好みで調整）
+        rootMargin: '0px 0px -100px 0px' 
+    });
+
+    // 取得したすべての要素を監視対象にする
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+</script>
+
 </body>
 </html>
