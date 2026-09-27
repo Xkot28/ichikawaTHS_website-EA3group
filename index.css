@@ -253,16 +253,54 @@ main#blog-list {
 /* Overwrite for blog index.html from build_blog.py*/
 .post-body { white-space: pre-wrap; word-wrap: break-word; line-height: 1.6; }
 
-/* ニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニ
-ここから下を追加：ふわっと浮かび上がるアニメーション
-ニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニ
-• fade-in {
-opacity: 0;/* 最初は透明（見えない状態）
-transform: transLateY（30px）；/*少し下（30px）に下げておく*/
-transition: opacity 0.8s
-ease-out, transform
-ease-out;/*8.8秒かけて滑らかに変化*/
-/* 画面に入った時にJavaScriptで追加されるクラス（表示状態）
-• fade-in. is-visible {
-opacity: 1;/＊不透明にするtransform: transLatey（O）；/*元の高さに戻す*/
-*/
+/* =========================================
+   スクロールアニメーション（高度なフェードイン）
+   ========================================= */
+
+/* アニメーション対象の共通基本設定 */
+.js-scroll {
+    opacity: 0;
+    will-change: opacity, transform;
+    /* 高級感のある滑らかな動き（イージング）を設定 */
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 1. 下からふわっと浮き上がる（デフォルト） */
+.js-scroll,
+.js-scroll.fade-up {
+    transform: translateY(40px);
+}
+
+/* 2. 左からスライドイン */
+.js-scroll.fade-left {
+    transform: translateX(-50px);
+}
+
+/* 3. 右からスライドイン */
+.js-scroll.fade-right {
+    transform: translateX(50px);
+}
+
+/* 4. ふわっと拡大しながら表示 */
+.js-scroll.fade-zoom {
+    transform: scale(0.9);
+}
+
+/* -----------------------------------------
+   画面に入った時の表示状態（JavaScriptで制御）
+   ----------------------------------------- */
+.js-scroll.is-active {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* -----------------------------------------
+   時間差（ディレイ）で順番に浮き上がらせる設定
+   ----------------------------------------- */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
