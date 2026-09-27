@@ -252,3 +252,17 @@ main#blog-list {
 
 /* Overwrite for blog index.html from build_blog.py*/
 .post-body { white-space: pre-wrap; word-wrap: break-word; line-height: 1.6; }
+
+/* ニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニ
+ここから下を追加：ふわっと浮かび上がるアニメーション
+ニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニニ
+• fade-in {
+opacity: 0;/* 最初は透明（見えない状態）
+transform: transLateY（30px）；/*少し下（30px）に下げておく*/
+transition: opacity 0.8s
+ease-out, transform
+ease-out;/*8.8秒かけて滑らかに変化*/
+/* 画面に入った時にJavaScriptで追加されるクラス（表示状態）
+• fade-in. is-visible {
+opacity: 1;/＊不透明にするtransform: transLatey（O）；/*元の高さに戻す*/
+*/
