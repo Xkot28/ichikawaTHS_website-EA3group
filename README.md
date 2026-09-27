@@ -1,2 +1,3 @@
 # ichikawaTHS_website-EA3group
 市工課題研究E3A3班のwebサイト
+著作は2026年度E3A3班に帰属します。
