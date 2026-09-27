@@ -49,29 +49,29 @@ h2 {
 .timeline {
     position: relative;
     max-width: 600px;
-    margin: 40px auto;
-    padding-left: 40px; /* 左側の線のスペースを確保 */
-    padding-bottom: 20px; /* 矢印の下の余白 */
+    margin: 60px auto; /* 上下の余白を増やして大きな矢印のスペースを確保 */
+    padding-left: 60px; /* 左側の線のスペースを大幅に確保 */
+    padding-bottom: 40px; /* 矢印の下の余白を増やす */
 }
 
-/* 縦の直線（下向きの軸） */
+/* 縦の直線（下向きの軸） - 太くする */
 .timeline::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 15px;
+    left: 20px; /* 左側に寄せる */
     height: 100%;
-    width: 4px;
-    background: #1a2a6c; /* サイトのテーマカラー（紺色） */
+    width: 8px; /* 太くする */
+    background: #1a2a6c;
 }
 
-/* 下向きの矢印（先端部分） */
+/* 下向きの矢印（先端部分） - 大幅に大きくする */
 .timeline::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 3px;
-    border-width: 15px 14px 0 14px;
+    bottom: -15px; /* 下にずらす */
+    left: -4px; /* 縦線の中心に合わせる */
+    border-width: 30px 28px 0 28px; /* 大幅に拡大 */
     border-style: solid;
     border-color: #1a2a6c transparent transparent transparent;
 }
@@ -79,38 +79,50 @@ h2 {
 /* 各予定のブロック */
 .timeline-item {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 50px; /* 各項目の間隔を広げる */
 }
 
-/* 予定の横にある丸い点（ドット） */
+/* 予定の横にある丸い点（ドット） - 大幅に大きくする */
 .timeline-item::before {
     content: '';
     position: absolute;
     top: 5px;
-    left: -32.5px;
-    width: 12px;
-    height: 12px;
+    left: -50px; /* 左側に大幅に寄せる */
+    width: 24px; /* 大幅に拡大（12px -> 24px） */
+    height: 24px; /* 大幅に拡大 */
     border-radius: 50%;
-    background: #fdbb2d; /* アクセントカラー（黄色） */
-    border: 3px solid #1a2a6c;
-    z-index: 1; /* 線の上にドットを表示 */
+    background: #fdbb2d;
+    border: 5px solid #1a2a6c; /* 太い境界線 */
+    z-index: 1;
+}
+
+/* 各項目ごとの小さな下向き矢印（追加） - 項目間の流れを強調 */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    bottom: -35px; /* ドットの下に配置 */
+    left: -28px; /* 縦線の中心に合わせる */
+    border-width: 15px 14px 0 14px; /* 項目間用の小さな矢印サイズ */
+    border-style: solid;
+    border-color: #1a2a6c transparent transparent transparent;
+    z-index: 1;
 }
 
 /* 日付の文字スタイル */
 .timeline-date {
     font-weight: bold;
     color: #1a2a6c;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-size: 1.4rem; /* 文字を少し大きく */
 }
 
 /* 予定内容の枠スタイル */
 .timeline-content {
     background: white;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px; /* 余白を増やす */
+    border-radius: 12px; /* 丸みを強くする */
     border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* 影を強くする */
 }
 
 
