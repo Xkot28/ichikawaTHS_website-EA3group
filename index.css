@@ -254,17 +254,20 @@ main#blog-list {
 .post-body { white-space: pre-wrap; word-wrap: break-word; line-height: 1.6; }
 
 
-
-/* 最初は透明で少し下に配置 */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s, transform 0.8s;
+    /* スクロールに合わせてアニメーションさせる設定 */
+    animation: fadeIn linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
 }
 
-/* 画面に入ったら表示 */
-.fade-in.active {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
