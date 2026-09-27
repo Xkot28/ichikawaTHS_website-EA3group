@@ -49,80 +49,71 @@ h2 {
 .timeline {
     position: relative;
     max-width: 600px;
-    margin: 60px auto; /* 上下の余白を増やして大きな矢印のスペースを確保 */
-    padding-left: 60px; /* 左側の線のスペースを大幅に確保 */
-    padding-bottom: 40px; /* 矢印の下の余白を増やす */
+    margin: 60px auto;
+    padding-left: 100px; /* 太い矢印を置くための左スペースを広く確保 */
+    padding-bottom: 50px; /* 矢印の先端がはみ出す分の余白 */
 }
 
-/* 縦の直線（下向きの軸） - 太くする */
+/* 太い矢印の軸（ボディ部分） */
 .timeline::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 20px; /* 左側に寄せる */
+    left: 20px; /* 左から20pxの位置に配置 */
+    width: 36px; /* ★矢印の横幅を広くする */
     height: 100%;
-    width: 8px; /* 太くする */
-    background: #1a2a6c;
+    background: #1a2a6c; /* サイトカラーの紺色で塗りつぶし */
+    border-radius: 4px 4px 0 0;
+    z-index: 0;
 }
 
-/* 下向きの矢印（先端部分） - 大幅に大きくする */
+/* 矢印の先端（大きな三角形） */
 .timeline::after {
     content: '';
     position: absolute;
-    bottom: -15px; /* 下にずらす */
-    left: -4px; /* 縦線の中心に合わせる */
-    border-width: 30px 28px 0 28px; /* 大幅に拡大 */
+    bottom: -36px; /* 軸の下に配置 */
+    left: 8px; /* 軸の中心にぴったり合わせる */
+    border-width: 36px 30px 0 30px; /* 大きな下向き三角形 */
     border-style: solid;
     border-color: #1a2a6c transparent transparent transparent;
+    z-index: 0;
 }
 
 /* 各予定のブロック */
 .timeline-item {
     position: relative;
-    margin-bottom: 50px; /* 各項目の間隔を広げる */
+    margin-bottom: 40px;
 }
 
-/* 予定の横にある丸い点（ドット） - 大幅に大きくする */
+/* ★太い矢印の中に入る点（ドット） */
 .timeline-item::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: -50px; /* 左側に大幅に寄せる */
-    width: 24px; /* 大幅に拡大（12px -> 24px） */
-    height: 24px; /* 大幅に拡大 */
+    top: 25px; /* コンテンツの高さに合わせて上下位置を調整 */
+    left: -70px; /* ★太い矢印のど真ん中に点が来るように計算された位置 */
+    width: 16px; /* 点の大きさ */
+    height: 16px;
     border-radius: 50%;
-    background: #fdbb2d;
-    border: 5px solid #1a2a6c; /* 太い境界線 */
-    z-index: 1;
-}
-
-/* 各項目ごとの小さな下向き矢印（追加） - 項目間の流れを強調 */
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    bottom: -35px; /* ドットの下に配置 */
-    left: -28px; /* 縦線の中心に合わせる */
-    border-width: 15px 14px 0 14px; /* 項目間用の小さな矢印サイズ */
-    border-style: solid;
-    border-color: #1a2a6c transparent transparent transparent;
-    z-index: 1;
+    background: #fdbb2d; /* 目立つように黄色を使用 */
+    border: 2px solid white; /* 点の周りに白い縁取りを入れてより綺麗に */
+    z-index: 1; /* 矢印より手前（上）に表示 */
 }
 
 /* 日付の文字スタイル */
 .timeline-date {
     font-weight: bold;
     color: #1a2a6c;
-    margin-bottom: 8px;
-    font-size: 1.4rem; /* 文字を少し大きく */
+    margin-bottom: 5px;
+    font-size: 1.2rem;
 }
 
 /* 予定内容の枠スタイル */
 .timeline-content {
     background: white;
-    padding: 20px; /* 余白を増やす */
-    border-radius: 12px; /* 丸みを強くする */
+    padding: 15px;
+    border-radius: 8px;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* 影を強くする */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 
