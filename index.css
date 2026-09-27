@@ -45,11 +45,74 @@ h2 {
     padding-bottom: 10px;
 }
 
-h3 {
-    color: #1a2a6c;
-    border-bottom: 3px solid #1a2a6c;
-    padding-bottom: 10px;
+/* タイムライン全体の枠組み */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 40px auto;
+    padding-left: 40px; /* 左側の線のスペースを確保 */
+    padding-bottom: 20px; /* 矢印の下の余白 */
 }
+
+/* 縦の直線（下向きの軸） */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: 100%;
+    width: 4px;
+    background: #1a2a6c; /* サイトのテーマカラー（紺色） */
+}
+
+/* 下向きの矢印（先端部分） */
+.timeline::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 3px;
+    border-width: 15px 14px 0 14px;
+    border-style: solid;
+    border-color: #1a2a6c transparent transparent transparent;
+}
+
+/* 各予定のブロック */
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* 予定の横にある丸い点（ドット） */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -32.5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fdbb2d; /* アクセントカラー（黄色） */
+    border: 3px solid #1a2a6c;
+    z-index: 1; /* 線の上にドットを表示 */
+}
+
+/* 日付の文字スタイル */
+.timeline-date {
+    font-weight: bold;
+    color: #1a2a6c;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+/* 予定内容の枠スタイル */
+.timeline-content {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
 
 
 /* Blog Specific Styles */
